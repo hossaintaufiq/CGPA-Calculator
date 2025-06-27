@@ -1,38 +1,517 @@
-// NSU grade options
-const gradeOptions = [
-    { letter: 'A', value: 4.0 },
-    { letter: 'A−', value: 3.7 },
-    { letter: 'B+', value: 3.3 },
-    { letter: 'B', value: 3.0 },
-    { letter: 'B−', value: 2.7 },
-    { letter: 'C+', value: 2.3 },
-    { letter: 'C', value: 2.0 },
-    { letter: 'C−', value: 1.7 },
-    { letter: 'D+', value: 1.3 },
-    { letter: 'D', value: 1.0 },
-    { letter: 'F', value: 0.0 }
-];
+// University grading systems
+const universityGradingSystems = {
+    // Standard 4.0 scale (most private universities)
+    nsu: {
+        name: "North South University (NSU)",
+        grades: [
+            { letter: 'A', value: 4.0 },
+            { letter: 'A−', value: 3.7 },
+            { letter: 'B+', value: 3.3 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.7 },
+            { letter: 'C+', value: 2.3 },
+            { letter: 'C', value: 2.0 },
+            { letter: 'C−', value: 1.7 },
+            { letter: 'D+', value: 1.3 },
+            { letter: 'D', value: 1.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    du: {
+        name: "University of Dhaka (DU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    brac: {
+        name: "BRAC University",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    ju: {
+        name: "Jahangirnagar University (JU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    daffodil: {
+        name: "Daffodil International University",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    buet: {
+        name: "Bangladesh University of Engineering and Technology (BUET)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    ewu: {
+        name: "East West University (EWU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    uiu: {
+        name: "United International University (UIU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    aiub: {
+        name: "American International University - Bangladesh (AIUB)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    bsmrau: {
+        name: "Bangabandhu Sheikh Mujibur Rahman Agricultural University (BSMRAU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    ru: {
+        name: "University of Rajshahi (RU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    stamford: {
+        name: "Stamford University Bangladesh",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    bu: {
+        name: "Bangladesh University",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    diu: {
+        name: "Dhaka International University",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    duet: {
+        name: "Dhaka University of Engineering and Technology (DUET)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    cuet: {
+        name: "Chittagong University of Engineering and Technology (CUET)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    iub: {
+        name: "Independent University, Bangladesh (IUB)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    iubat: {
+        name: "IUBAT - International University of Business Agriculture and Technology",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    uap: {
+        name: "University of Asia Pacific (UAP)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    wub: {
+        name: "World University of Bangladesh (WUB)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    seu: {
+        name: "Southeast University (SEU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    gub: {
+        name: "Green University of Bangladesh",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    bau: {
+        name: "Bangladesh Agricultural University (BAU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    iut: {
+        name: "Islamic University of Technology (IUT)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    jnu: {
+        name: "Jagannath University (JnU)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    sau: {
+        name: "Sher-e-Bangla Agricultural University",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    sust: {
+        name: "Shahjalal University of Science and Technology (SUST)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    ruet: {
+        name: "Rajshahi University of Engineering & Technology (RUET)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    },
+    kuet: {
+        name: "Khulna University of Engineering & Technology (KUET)",
+        grades: [
+            { letter: 'A+', value: 4.0 },
+            { letter: 'A', value: 3.75 },
+            { letter: 'A−', value: 3.5 },
+            { letter: 'B+', value: 3.25 },
+            { letter: 'B', value: 3.0 },
+            { letter: 'B−', value: 2.75 },
+            { letter: 'C+', value: 2.5 },
+            { letter: 'C', value: 2.25 },
+            { letter: 'D', value: 2.0 },
+            { letter: 'F', value: 0.0 }
+        ]
+    }
+};
 
+// Common credit options
 const creditsOptions = [1, 1.5, 2, 3, 4];
 
+// DOM elements
 const coursesContainer = document.getElementById('coursesContainer');
 const prevCreditsInput = document.getElementById('prevCredits');
 const prevGradeSelect = document.getElementById('prevGrade');
+const universitySelect = document.getElementById('universitySelect');
+const gradingInfo = document.getElementById('gradingInfo');
 
-// For SVG progress circles
-const cgpaArc = document.getElementById('cgpaArc');
-const cgpaValue = document.getElementById('cgpaValue');
-const creditsArc = document.getElementById('creditsArc');
-const creditsValue = document.getElementById('creditsValue');
-const CIRCLE_LENGTH = 502; // 2 * PI * r (r=80)
-const MAX_CGPA = 4.0;
-const MAX_CREDITS = 150; // You can adjust this as needed
+// Current university and grade options
+let currentUniversity = 'nsu';
+let currentGradeOptions = universityGradingSystems.nsu.grades;
 
-function setProgressArc(arcElem, value, max, color) {
-    const percent = Math.max(0, Math.min(1, value / max));
-    const offset = CIRCLE_LENGTH * (1 - percent);
-    arcElem.style.strokeDashoffset = offset;
-    arcElem.style.stroke = color;
+// Initialize the application
+function initializeApp() {
+    updateGradingInfo();
+    updateGradeSelects();
+    
+    // Add event listener for university selection
+    universitySelect.addEventListener('change', function() {
+        currentUniversity = this.value;
+        currentGradeOptions = universityGradingSystems[currentUniversity].grades;
+        updateGradingInfo();
+        updateGradeSelects();
+    });
+    
+    // Add initial rows
+    for (let i = 0; i < 3; i++) addRow();
+}
+
+// Update grading information display
+function updateGradingInfo() {
+    const university = universityGradingSystems[currentUniversity];
+    const gradeText = university.grades.map(g => `${g.letter} (${g.value})`).join(', ');
+    gradingInfo.innerHTML = `<strong>${university.name} Grading System:</strong> ${gradeText}`;
+}
+
+// Update all grade select elements
+function updateGradeSelects() {
+    // Update previous grade select
+    updateGradeSelect(prevGradeSelect);
+    
+    // Update all course grade selects
+    const courseGradeSelects = document.querySelectorAll('.course-grade-select');
+    courseGradeSelects.forEach(select => {
+        updateGradeSelect(select);
+    });
+}
+
+// Update a single grade select element
+function updateGradeSelect(selectElement) {
+    const currentValue = selectElement.value;
+    
+    // Clear existing options
+    selectElement.innerHTML = '';
+    
+    // Add default option
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = currentGradeOptions[0].letter;
+    selectElement.appendChild(defaultOption);
+    
+    // Add grade options
+    currentGradeOptions.forEach(grade => {
+        const option = document.createElement('option');
+        option.value = grade.value;
+        option.textContent = grade.letter;
+        if (grade.value.toString() === currentValue) {
+            option.selected = true;
+        }
+        selectElement.appendChild(option);
+    });
 }
 
 function createRow(course = '', credits = 0, grade = 4.0) {
@@ -63,18 +542,8 @@ function createRow(course = '', credits = 0, grade = 4.0) {
 
     // Grade select
     const gradeSelect = document.createElement('select');
-    gradeSelect.className = 'border rounded px-3 py-2 w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-300 text-base md:text-lg';
-    const defaultGradeOption = document.createElement('option');
-    defaultGradeOption.value = '';
-    defaultGradeOption.textContent = 'A';
-    gradeSelect.appendChild(defaultGradeOption);
-    gradeOptions.forEach(g => {
-        const opt = document.createElement('option');
-        opt.value = g.value;
-        opt.textContent = g.letter;
-        if (g.value === grade) opt.selected = true;
-        gradeSelect.appendChild(opt);
-    });
+    gradeSelect.className = 'border rounded px-3 py-2 w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-300 text-base md:text-lg course-grade-select';
+    updateGradeSelect(gradeSelect);
 
     // Delete button
     const delBtn = document.createElement('button');
@@ -126,19 +595,22 @@ function calculateCGPA() {
         totalCredits += row.credits;
         totalGradePoints += row.credits * row.grade;
     });
+    
     const cgpa = totalCredits ? (totalGradePoints / totalCredits) : 0;
 
-    // Update summary card values only
+    // Update summary card values
     document.getElementById('cgpaValue').textContent = cgpa.toFixed(2);
     document.getElementById('creditsValue').textContent = totalCredits % 1 === 0 ? totalCredits : totalCredits.toFixed(1);
 }
 
-// Initial rows
-for (let i = 0; i < 3; i++) addRow();
-
-// Only update on form submit
-const cgpaForm = document.getElementById('cgpaForm');
-cgpaForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    calculateCGPA();
-}); 
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+    
+    // Form submit event
+    const cgpaForm = document.getElementById('cgpaForm');
+    cgpaForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        calculateCGPA();
+    });
+});
