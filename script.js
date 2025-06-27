@@ -40,7 +40,6 @@ function initializeApp() {
     }
     updateGradingInfo();
     updateGradeSelects();
-    updatePrevGradeSelect();
     
     // Add event listener for university selection (General tab)
     universitySelect.addEventListener('change', function() {
@@ -48,7 +47,6 @@ function initializeApp() {
         currentGradeOptions = universityGradingSystems[currentUniversity].grades;
         updateGradingInfo();
         updateGradeSelects();
-        updatePrevGradeSelect();
         // Always ensure at least one course row exists
         if (coursesContainer.getElementsByClassName('input-row').length === 0) {
             addRow();
@@ -68,7 +66,6 @@ function initializeApp() {
         currentGradeOptions = universityGradingSystems[currentUniversity].grades;
         updateGradingInfo();
         updateGradeSelects();
-        updatePrevGradeSelect();
         // Always ensure at least one course row exists
         if (coursesContainer.getElementsByClassName('input-row').length === 0) {
             addRow();
@@ -412,21 +409,22 @@ async function generatePDF() {
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
         const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
         let y = 56;
 
         // 1. Headline: Grade Report
-        pdf.setFillColor(37, 99, 235); // Tailwind blue-600
+        pdf.setFillColor(200, 220, 255); // Soft blue
         pdf.roundedRect(0, 0, pageWidth, 70, 0, 0, 'F');
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(30);
-        pdf.setTextColor(255, 255, 255);
+        pdf.setTextColor(60, 60, 80);
         pdf.text('Grade Report', pageWidth / 2, 44, { align: 'center' });
         y = 90;
 
         // 2. University Name
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(18);
-        pdf.setTextColor(59, 130, 246); // Tailwind blue-500
+        pdf.setTextColor(200, 220, 255); // Soft blue
         pdf.text(calculationData.university, pageWidth / 2, y, { align: 'center' });
         y += 30;
 
@@ -443,11 +441,11 @@ async function generatePDF() {
         y += 32;
 
         // 4. Summary Card
-        pdf.setFillColor(232, 240, 254); // Light blue
+        pdf.setFillColor(245, 247, 250); // Light gray
         pdf.roundedRect(50, y, pageWidth - 100, 60, 14, 14, 'F');
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(15);
-        pdf.setTextColor(37, 99, 235); // Blue
+        pdf.setTextColor(60, 60, 80);
         pdf.text('Summary', 65, y + 28);
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(13);
@@ -455,7 +453,7 @@ async function generatePDF() {
         pdf.text('Total CGPA:', 200, y + 28);
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(16);
-        pdf.setTextColor(16, 185, 129); // Green
+        pdf.setTextColor(180, 230, 200); // Gentle green
         pdf.text(`${calculationData.cgpa.toFixed(2)}`, 280, y + 28);
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(13);
@@ -463,59 +461,104 @@ async function generatePDF() {
         pdf.text('Total Credits:', 370, y + 28);
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(16);
-        pdf.setTextColor(251, 146, 60); // Orange
+        pdf.setTextColor(255, 230, 180); // Gentle orange
         pdf.text(`${calculationData.totalCredits % 1 === 0 ? calculationData.totalCredits : calculationData.totalCredits.toFixed(1)}`, 470, y + 28);
         y += 80;
 
         // 5. Course Details Table
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(15);
-        pdf.setTextColor(16, 185, 129); // Green
+        pdf.setTextColor(180, 230, 200); // Gentle green
         pdf.text('Course Details', 50, y);
         y += 12;
-        pdf.setDrawColor(16, 185, 129);
+        pdf.setDrawColor(180, 230, 200);
         pdf.setLineWidth(1);
         pdf.line(50, y + 4, pageWidth - 50, y + 4);
         y += 14;
-        pdf.setFont('helvetica', 'normal');
-        pdf.setFontSize(12);
-        pdf.setTextColor(55, 65, 81);
+
+        // Define column widths and positions
+        const tableStartX = 50;
+        const tableEndX = pageWidth - 50;
+        const tableWidth = tableEndX - tableStartX;
+        
+        // Column widths (percentage of table width)
+        const courseColWidth = tableWidth * 0.45; // 45% for course name
+        const creditsColWidth = tableWidth * 0.15; // 15% for credits
+        const gradeColWidth = tableWidth * 0.15;   // 15% for grade
+        const pointsColWidth = tableWidth * 0.25;  // 25% for grade points
+        
+        // Column positions
+        const courseColX = tableStartX + 10;
+        const creditsColX = courseColX + courseColWidth;
+        const gradeColX = creditsColX + creditsColWidth;
+        const pointsColX = gradeColX + gradeColWidth;
+
         // Table header
-        pdf.setFillColor(219, 234, 254); // Blue-100
-        pdf.roundedRect(50, y, pageWidth - 100, 26, 8, 8, 'F');
+        pdf.setFillColor(245, 247, 250); // Light gray
+        pdf.roundedRect(tableStartX, y, tableWidth, 26, 8, 8, 'F');
         pdf.setFont('helvetica', 'bold');
-        pdf.setTextColor(37, 99, 235);
-        pdf.text('Course', 60, y + 18);
-        pdf.text('Credits', 220, y + 18);
-        pdf.text('Grade', 320, y + 18);
-        pdf.text('Grade Points', 410, y + 18);
+        pdf.setFontSize(12);
+        pdf.setTextColor(60, 60, 80);
+        pdf.text('Course', courseColX, y + 18);
+        pdf.text('Credits', creditsColX + 10, y + 18);
+        pdf.text('Grade', gradeColX + 10, y + 18);
+        pdf.text('Grade Points', pointsColX + 10, y + 18);
         y += 28;
+
         // Table rows
         pdf.setFont('helvetica', 'normal');
-        pdf.setFontSize(12);
+        pdf.setFontSize(11);
+        
         calculationData.courseDetails.forEach((item, idx) => {
-            if (idx % 2 === 0) {
-                pdf.setFillColor(239, 246, 255); // Blue-50
-                pdf.roundedRect(50, y, pageWidth - 100, 22, 8, 8, 'F');
+            // Calculate row height based on course name length
+            const courseNameHeight = getTextHeight(item.course, courseColWidth - 20, pdf, 12);
+            const rowHeight = Math.max(22, courseNameHeight + 8); // Minimum 22pt height
+            
+            // Check if we need a new page
+            if (y + rowHeight > pageHeight - 100) {
+                pdf.addPage();
+                y = 56;
             }
+            
+            // Row background
+            if (idx % 2 === 0) {
+                pdf.setFillColor(245, 247, 250); // Light gray
+                pdf.roundedRect(tableStartX, y, tableWidth, rowHeight, 8, 8, 'F');
+            }
+            
             pdf.setTextColor(55, 65, 81);
-            pdf.text(item.course, 60, y + 15);
-            pdf.text(String(item.credits), 220, y + 15);
-            pdf.text(String(item.grade), 320, y + 15);
-            pdf.text(item.gradePoints.toFixed(2), 410, y + 15);
-            y += 22;
+            
+            // Course name (with wrapping)
+            drawWrappedText(item.course, courseColX, y + 12, courseColWidth - 20, pdf, 12);
+            
+            // Credits (centered)
+            const creditsText = String(item.credits);
+            const creditsWidth = pdf.getTextWidth(creditsText);
+            pdf.text(creditsText, creditsColX + (creditsColWidth - creditsWidth) / 2, y + 12);
+            
+            // Grade (centered)
+            const gradeText = String(item.grade);
+            const gradeWidth = pdf.getTextWidth(gradeText);
+            pdf.text(gradeText, gradeColX + (gradeColWidth - gradeWidth) / 2, y + 12);
+            
+            // Grade Points (centered)
+            const pointsText = item.gradePoints.toFixed(2);
+            const pointsWidth = pdf.getTextWidth(pointsText);
+            pdf.text(pointsText, pointsColX + (pointsColWidth - pointsWidth) / 2, y + 12);
+            
+            y += rowHeight;
         });
         y += 20;
 
         // 6. Footer
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(11);
-        pdf.setTextColor(37, 99, 235); // Blue
-        pdf.text('Generated by ALL University CGPA Calculator', pageWidth / 2, 800, { align: 'center' });
+        pdf.setTextColor(60, 60, 80);
+        pdf.text('Generated by ALL University CGPA Calculator', pageWidth / 2, pageHeight - 40, { align: 'center' });
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(11);
-        pdf.setTextColor(16, 185, 129); // Green
-        pdf.text('Developed by Neptune Software Solutions', pageWidth / 2, 820, { align: 'center' });
+        pdf.setTextColor(180, 230, 200); // Gentle green
+        pdf.text('Developed by Neptune Software Solutions', pageWidth / 2, pageHeight - 20, { align: 'center' });
 
         // Save PDF
         const fileName = `Grade_Report_${calculationData.university.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
@@ -654,17 +697,6 @@ function updateSemesterGradingInfo() {
     semesterGradingInfo.innerHTML = `<strong>Grading System:</strong> ${gradeText}`;
 }
 
-function updatePrevGradeSelect() {
-    prevGradeSelect.innerHTML = '';
-    const grades = universityGradingSystems[currentUniversity].grades;
-    grades.forEach(g => {
-        const opt = document.createElement('option');
-        opt.value = g.value;
-        opt.textContent = `${g.letter} (${g.value})`;
-        prevGradeSelect.appendChild(opt);
-    });
-}
-
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
@@ -732,22 +764,26 @@ async function generateSemesterPDF() {
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
         const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
         let y = 56;
+        
         // Header
-        pdf.setFillColor(139, 92, 246); // Tailwind purple-500
+        pdf.setFillColor(230, 220, 255); // Soft lavender
         pdf.roundedRect(0, 0, pageWidth, 70, 0, 0, 'F');
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(30);
-        pdf.setTextColor(255, 255, 255);
+        pdf.setTextColor(60, 60, 80);
         pdf.text('Semester-wise CGPA Report', pageWidth / 2, 44, { align: 'center' });
         y = 90;
+        
         // University Name
         const uni = semesterUniversitySelect.options[semesterUniversitySelect.selectedIndex].text;
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(18);
-        pdf.setTextColor(139, 92, 246); // Purple
+        pdf.setTextColor(230, 220, 255); // Soft lavender
         pdf.text(uni, pageWidth / 2, y, { align: 'center' });
         y += 30;
+        
         // Student Info Row
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(13);
@@ -757,12 +793,13 @@ async function generateSemesterPDF() {
         pdf.text('ID:', 300, y);
         pdf.text('_________________', 325, y);
         y += 32;
+        
         // Summary
-        pdf.setFillColor(232, 240, 254);
+        pdf.setFillColor(245, 247, 250);
         pdf.roundedRect(50, y, pageWidth - 100, 60, 14, 14, 'F');
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(15);
-        pdf.setTextColor(139, 92, 246);
+        pdf.setTextColor(60, 60, 80);
         pdf.text('Summary', 65, y + 28);
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(13);
@@ -770,7 +807,7 @@ async function generateSemesterPDF() {
         pdf.text('Overall CGPA:', 200, y + 28);
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(16);
-        pdf.setTextColor(16, 185, 129);
+        pdf.setTextColor(180, 230, 200); // Gentle green
         pdf.text(`${overallCgpa.toFixed(2)}`, 300, y + 28);
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(13);
@@ -778,55 +815,98 @@ async function generateSemesterPDF() {
         pdf.text('Total Credits:', 400, y + 28);
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(16);
-        pdf.setTextColor(251, 146, 60);
+        pdf.setTextColor(255, 230, 180); // Gentle orange
         pdf.text(`${totalCredits % 1 === 0 ? totalCredits : totalCredits.toFixed(1)}`, 500, y + 28);
         y += 80;
+        
         // Semester Table
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(15);
-        pdf.setTextColor(139, 92, 246);
+        pdf.setTextColor(180, 230, 200); // Gentle green
         pdf.text('Semester Details', 50, y);
         y += 12;
-        pdf.setDrawColor(139, 92, 246);
+        pdf.setDrawColor(180, 230, 200);
         pdf.setLineWidth(1);
         pdf.line(50, y + 4, pageWidth - 50, y + 4);
         y += 14;
-        pdf.setFont('helvetica', 'normal');
-        pdf.setFontSize(12);
-        pdf.setTextColor(55, 65, 81);
+
+        // Define column widths and positions
+        const tableStartX = 50;
+        const tableEndX = pageWidth - 50;
+        const tableWidth = tableEndX - tableStartX;
+        
+        // Column widths (percentage of table width)
+        const semesterColWidth = tableWidth * 0.50; // 50% for semester name
+        const cgpaColWidth = tableWidth * 0.25;     // 25% for CGPA
+        const creditsColWidth = tableWidth * 0.25;  // 25% for credits
+        
+        // Column positions
+        const semesterColX = tableStartX + 10;
+        const cgpaColX = semesterColX + semesterColWidth;
+        const creditsColX = cgpaColX + cgpaColWidth;
+
         // Table header
-        pdf.setFillColor(233, 213, 255); // Purple-100
-        pdf.roundedRect(50, y, pageWidth - 100, 26, 8, 8, 'F');
+        pdf.setFillColor(245, 247, 250); // Light gray
+        pdf.roundedRect(tableStartX, y, tableWidth, 26, 8, 8, 'F');
         pdf.setFont('helvetica', 'bold');
-        pdf.setTextColor(139, 92, 246);
-        pdf.text('Semester', 60, y + 18);
-        pdf.text('CGPA', 220, y + 18);
-        pdf.text('Credits', 320, y + 18);
+        pdf.setFontSize(12);
+        pdf.setTextColor(60, 60, 80);
+        pdf.text('Semester', semesterColX, y + 18);
+        pdf.text('CGPA', cgpaColX + 10, y + 18);
+        pdf.text('Credits', creditsColX + 10, y + 18);
         y += 28;
+        
         // Table rows
         pdf.setFont('helvetica', 'normal');
-        pdf.setFontSize(12);
+        pdf.setFontSize(11);
+        
         semesters.forEach((item, idx) => {
-            if (idx % 2 === 0) {
-                pdf.setFillColor(243, 232, 255); // Purple-50
-                pdf.roundedRect(50, y, pageWidth - 100, 22, 8, 8, 'F');
+            // Calculate row height based on semester name length
+            const semesterNameHeight = getTextHeight(item.semester || `Semester ${idx + 1}`, semesterColWidth - 20, pdf, 12);
+            const rowHeight = Math.max(22, semesterNameHeight + 8); // Minimum 22pt height
+            
+            // Check if we need a new page
+            if (y + rowHeight > pageHeight - 100) {
+                pdf.addPage();
+                y = 56;
             }
+            
+            // Row background
+            if (idx % 2 === 0) {
+                pdf.setFillColor(245, 247, 250); // Light gray
+                pdf.roundedRect(tableStartX, y, tableWidth, rowHeight, 8, 8, 'F');
+            }
+            
             pdf.setTextColor(55, 65, 81);
-            pdf.text(item.semester || `Semester ${idx + 1}`, 60, y + 15);
-            pdf.text(String(item.cgpa), 220, y + 15);
-            pdf.text(String(item.credits), 320, y + 15);
-            y += 22;
+            
+            // Semester name (with wrapping)
+            const semesterText = item.semester || `Semester ${idx + 1}`;
+            drawWrappedText(semesterText, semesterColX, y + 12, semesterColWidth - 20, pdf, 12);
+            
+            // CGPA (centered)
+            const cgpaText = String(item.cgpa);
+            const cgpaWidth = pdf.getTextWidth(cgpaText);
+            pdf.text(cgpaText, cgpaColX + (cgpaColWidth - cgpaWidth) / 2, y + 12);
+            
+            // Credits (centered)
+            const creditsText = String(item.credits);
+            const creditsWidth = pdf.getTextWidth(creditsText);
+            pdf.text(creditsText, creditsColX + (creditsColWidth - creditsWidth) / 2, y + 12);
+            
+            y += rowHeight;
         });
         y += 20;
+        
         // Footer
         pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(11);
-        pdf.setTextColor(139, 92, 246);
-        pdf.text('Generated by ALL University CGPA Calculator', pageWidth / 2, 800, { align: 'center' });
+        pdf.setTextColor(60, 60, 80);
+        pdf.text('Generated by ALL University CGPA Calculator', pageWidth / 2, pageHeight - 40, { align: 'center' });
         pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(11);
-        pdf.setTextColor(16, 185, 129);
-        pdf.text('Developed by Neptune Software Solutions', pageWidth / 2, 820, { align: 'center' });
+        pdf.setTextColor(180, 230, 200); // Gentle green
+        pdf.text('Developed by Neptune Software Solutions', pageWidth / 2, pageHeight - 20, { align: 'center' });
+        
         // Save PDF
         const fileName = `Semester_Report_${uni.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
         pdf.save(fileName);
@@ -844,3 +924,43 @@ window.toggleMobileMenu = function toggleMobileMenu() {
         mobileMenu.classList.toggle('hidden');
     }
 };
+
+// Helper function to wrap text to fit within a specified width
+function wrapText(text, maxWidth, pdf) {
+    const words = text.split(' ');
+    const lines = [];
+    let currentLine = '';
+    
+    for (let word of words) {
+        const testLine = currentLine ? currentLine + ' ' + word : word;
+        const testWidth = pdf.getTextWidth(testLine);
+        
+        if (testWidth > maxWidth && currentLine !== '') {
+            lines.push(currentLine);
+            currentLine = word;
+        } else {
+            currentLine = testLine;
+        }
+    }
+    
+    if (currentLine) {
+        lines.push(currentLine);
+    }
+    
+    return lines;
+}
+
+// Helper function to get the maximum height needed for text wrapping
+function getTextHeight(text, maxWidth, pdf, lineHeight = 14) {
+    const lines = wrapText(text, maxWidth, pdf);
+    return lines.length * lineHeight;
+}
+
+// Helper function to draw wrapped text
+function drawWrappedText(text, x, y, maxWidth, pdf, lineHeight = 14) {
+    const lines = wrapText(text, maxWidth, pdf);
+    lines.forEach((line, index) => {
+        pdf.text(line, x, y + (index * lineHeight));
+    });
+    return lines.length * lineHeight;
+}

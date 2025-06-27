@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | CGPA Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-purple-100 min-h-screen flex flex-col">
+  <!-- Navigation Bar -->
+  <nav class="relative z-10 navbar-gradient shadow-md border-b border-blue-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-gradient-to-r from-blue-500 to-green-400 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <span class="navbar-title-bold">CGPA Calculator</span>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-6">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="faq.html" class="nav-link">FAQ</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="privacy.html" class="nav-link active">Privacy Policy</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+        </div>
+        <div class="md:hidden">
+          <button class="text-gray-600 hover:text-blue-600 p-2" onclick="toggleMobileMenu()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a href="index.html" class="nav-link block">Home</a>
+          <a href="faq.html" class="nav-link block">FAQ</a>
+          <a href="about.html" class="nav-link block">About Us</a>
+          <a href="privacy.html" class="nav-link active block">Privacy Policy</a>
+          <a href="contact.html" class="nav-link block">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="max-w-2xl mx-auto mt-12 bg-white rounded-2xl shadow-xl p-8 border border-blue-100">
+    <div class="flex items-center mb-6">
+      <svg class="w-10 h-10 text-blue-500 mr-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+      <h1 class="text-3xl font-extrabold text-blue-700">Privacy Policy</h1>
+    </div>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-blue-600 mb-2">Introduction</h2>
+      <p class="text-gray-700">Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use the CGPA Calculator.</p>
+    </section>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-blue-600 mb-2">What Data We Collect</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li>No personal data is required to use this tool.</li>
+        <li>We do not store your grades, credits, or calculation results.</li>
+        <li>Anonymous analytics may be used to improve the app experience.</li>
+      </ul>
+    </section>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-blue-600 mb-2">How We Use Data</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li>Data entered is processed only in your browser for calculation purposes.</li>
+        <li>We do not share or sell your data to third parties.</li>
+      </ul>
+    </section>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-blue-600 mb-2">Data Security</h2>
+      <p class="text-gray-700">We use modern web technologies and best practices to keep your data secure. Since no personal data is stored, your privacy is always protected.</p>
+    </section>
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold text-blue-600 mb-2">Your Rights</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li>You have full control over your data. Refreshing or closing the page erases all entered information.</li>
+        <li>If you have questions, you can contact us below.</li>
+      </ul>
+    </section>
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-blue-600 mb-2">Contact Info</h2>
+      <p class="text-gray-700">For privacy-related questions, please email <a href="mailto:support@cgpa-calculator.com" class="text-blue-500 underline">support@cgpa-calculator.com</a>.</p>
+    </section>
+    <a href="index.html" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow transition">Back to Calculator</a>
+  </div>
+</body>
+</html> 
