@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bangladesh University CGPA Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: none; } }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        .navbar-gradient {
+            background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+            box-shadow: 0 2px 12px 0 #2563eb22;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 via-white to-blue-50 min-h-screen font-sans relative overflow-x-hidden">
+    <!-- Decorative Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-20 left-10 w-20 h-20 bg-blue-200 rounded-full opacity-20 floating"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 bg-purple-200 rounded-full opacity-30 floating" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-40 left-20 w-24 h-24 bg-green-200 rounded-full opacity-25 floating" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 right-10 w-12 h-12 bg-yellow-200 rounded-full opacity-30 floating" style="animation-delay: 0.5s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-r from-blue-300 to-purple-300 rounded-full opacity-10 floating" style="animation-delay: 1.5s;"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="relative z-10 navbar-gradient shadow-md border-b border-blue-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg mr-3"></div>
+                            <span class="text-xl font-bold text-gray-800">CGPA Calculator</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="faq.html" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                        <a href="about.html" class="text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About Us</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-600 hover:text-blue-600 p-2" onclick="toggleMobileMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">Home</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">FAQ</a>
+                    <a href="about.html" class="text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors">About Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Us Content -->
+    <div class="max-w-4xl mx-auto py-8 px-4 relative z-10">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-900 mb-4">About Us</h1>
+            <p class="text-lg text-blue-700">Empowering students with accurate CGPA calculation tools</p>
+        </div>
+        
+        <div class="space-y-8">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h2>
+                <p class="text-gray-600 mb-4">We are dedicated to providing Bangladeshi university students with a comprehensive, accurate, and user-friendly CGPA calculation tool. Our goal is to simplify academic planning and help students track their academic progress effectively.</p>
+                <p class="text-gray-600">By supporting multiple universities and grading systems, we ensure that every student can calculate their CGPA with confidence, regardless of their institution.</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">What We Offer</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Multi-University Support</h4>
+                                <p class="text-sm text-gray-600">Support for 30+ Bangladeshi universities with their specific grading systems</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Dual Calculation Methods</h4>
+                                <p class="text-sm text-gray-600">General course-based and semester-wise CGPA calculation options</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">PDF Reports</h4>
+                                <p class="text-sm text-gray-600">Professional PDF reports for academic records and applications</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Real-time Updates</h4>
+                                <p class="text-sm text-gray-600">Instant calculation updates as you modify course data</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Mobile Responsive</h4>
+                                <p class="text-sm text-gray-600">Optimized for all devices - desktop, tablet, and mobile</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="bg-blue-100 text-blue-600 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">✓</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">No Registration Required</h4>
+                                <p class="text-sm text-gray-600">Start calculating immediately - no sign-up or installation needed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Why Choose Our Calculator?</h2>
+                <div class="space-y-4 text-gray-600">
+                    <p><strong>Accuracy:</strong> Our calculations are based on official university grading systems and follow standard academic practices.</p>
+                    <p><strong>Comprehensive:</strong> We support both course-based and semester-based calculations, catering to different academic tracking needs.</p>
+                    <p><strong>User-Friendly:</strong> Clean, intuitive interface designed for students of all technical backgrounds.</p>
+                    <p><strong>Reliable:</strong> Built with modern web technologies ensuring consistent performance across all devices and browsers.</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact & Support</h2>
+                <p class="text-gray-600 mb-4">We're committed to providing the best possible experience for Bangladeshi university students. If you have questions, suggestions, or need support, we're here to help.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Features & Improvements</h4>
+                        <p class="text-sm text-gray-600">We regularly update our calculator with new universities, improved features, and enhanced user experience based on student feedback.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-2">Accuracy & Reliability</h4>
+                        <p class="text-sm text-gray-600">Our grading systems are verified against official university policies to ensure accurate calculations for all supported institutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html> 

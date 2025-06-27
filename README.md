@@ -23,6 +23,7 @@ A comprehensive web-based CGPA (Cumulative Grade Point Average) calculator desig
 - **Responsive Design** - Works perfectly on all devices
 - **Interactive Help Section** - Step-by-step usage guide
 - **Visual Feedback** - Hover effects and smooth interactions
+- **Separate Pages** - Dedicated FAQ and About Us pages for better organization
 
 ### **Detailed Results Display** 📊
 - **Comprehensive Results Section** - Shows all calculation details
@@ -104,7 +105,9 @@ A comprehensive web-based CGPA (Cumulative Grade Point Average) calculator desig
 
 ```
 bangladesh-university-cgpa-calculator/
-├── index.html          # Main HTML file with UI
+├── index.html          # Main HTML file with CGPA calculator
+├── faq.html            # FAQ page with common questions
+├── about.html          # About Us page with project information
 ├── script.js           # JavaScript functionality
 ├── README.md           # Project documentation
 └── .git/               # Git repository

@@ -1,443 +1,13 @@
-// University grading systems
-const universityGradingSystems = {
-    // Standard 4.0 scale (most private universities)
-    nsu: {
-        name: "North South University (NSU)",
-        grades: [
-            { letter: 'A', value: 4.0 },
-            { letter: 'A−', value: 3.7 },
-            { letter: 'B+', value: 3.3 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.7 },
-            { letter: 'C+', value: 2.3 },
-            { letter: 'C', value: 2.0 },
-            { letter: 'C−', value: 1.7 },
-            { letter: 'D+', value: 1.3 },
-            { letter: 'D', value: 1.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    du: {
-        name: "University of Dhaka (DU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    brac: {
-        name: "BRAC University",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    ju: {
-        name: "Jahangirnagar University (JU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    daffodil: {
-        name: "Daffodil International University",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    buet: {
-        name: "Bangladesh University of Engineering and Technology (BUET)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    ewu: {
-        name: "East West University (EWU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    uiu: {
-        name: "United International University (UIU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    aiub: {
-        name: "American International University - Bangladesh (AIUB)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    bsmrau: {
-        name: "Bangabandhu Sheikh Mujibur Rahman Agricultural University (BSMRAU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    ru: {
-        name: "University of Rajshahi (RU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    stamford: {
-        name: "Stamford University Bangladesh",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    bu: {
-        name: "Bangladesh University",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    diu: {
-        name: "Dhaka International University",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    duet: {
-        name: "Dhaka University of Engineering and Technology (DUET)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    cuet: {
-        name: "Chittagong University of Engineering and Technology (CUET)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    iub: {
-        name: "Independent University, Bangladesh (IUB)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    iubat: {
-        name: "IUBAT - International University of Business Agriculture and Technology",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    uap: {
-        name: "University of Asia Pacific (UAP)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    wub: {
-        name: "World University of Bangladesh (WUB)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    seu: {
-        name: "Southeast University (SEU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    gub: {
-        name: "Green University of Bangladesh",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    bau: {
-        name: "Bangladesh Agricultural University (BAU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    iut: {
-        name: "Islamic University of Technology (IUT)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    jnu: {
-        name: "Jagannath University (JnU)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    sau: {
-        name: "Sher-e-Bangla Agricultural University",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    sust: {
-        name: "Shahjalal University of Science and Technology (SUST)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    ruet: {
-        name: "Rajshahi University of Engineering & Technology (RUET)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    },
-    kuet: {
-        name: "Khulna University of Engineering & Technology (KUET)",
-        grades: [
-            { letter: 'A+', value: 4.0 },
-            { letter: 'A', value: 3.75 },
-            { letter: 'A−', value: 3.5 },
-            { letter: 'B+', value: 3.25 },
-            { letter: 'B', value: 3.0 },
-            { letter: 'B−', value: 2.75 },
-            { letter: 'C+', value: 2.5 },
-            { letter: 'C', value: 2.25 },
-            { letter: 'D', value: 2.0 },
-            { letter: 'F', value: 0.0 }
-        ]
-    }
-};
+/**
+ * Bangladesh University CGPA Calculator
+ * 
+ * IMPORTANT NOTES:
+ * - AIUB grading system has been corrected (removed A- and B- grades)
+ * - Other universities may need verification of their grading systems
+ * - Consider moving universityGradingSystems to a separate file for better organization
+ */
+
+import { universityGradingSystems } from './university-grading-systems.js';
 
 // Common credit options
 const creditsOptions = [1, 1.5, 2, 3, 4];
@@ -445,7 +15,7 @@ const creditsOptions = [1, 1.5, 2, 3, 4];
 // DOM elements
 const coursesContainer = document.getElementById('coursesContainer');
 const prevCreditsInput = document.getElementById('prevCredits');
-const prevGradeSelect = document.getElementById('prevGrade');
+const prevGradeSelect = document.getElementById('prevGradeSelect');
 const universitySelect = document.getElementById('universitySelect');
 const gradingInfo = document.getElementById('gradingInfo');
 const resultsSection = document.getElementById('resultsSection');
@@ -460,8 +30,17 @@ let calculationData = null;
 
 // Initialize the application
 function initializeApp() {
+    if (!coursesContainer || !universitySelect || !prevGradeSelect) {
+        alert('Initialization error: Some required elements are missing.');
+        return;
+    }
+    if (typeof universityGradingSystems !== 'object') {
+        alert('Initialization error: Grading systems module not loaded.');
+        return;
+    }
     updateGradingInfo();
     updateGradeSelects();
+    updatePrevGradeSelect();
     
     // Add event listener for university selection (General tab)
     universitySelect.addEventListener('change', function() {
@@ -469,6 +48,11 @@ function initializeApp() {
         currentGradeOptions = universityGradingSystems[currentUniversity].grades;
         updateGradingInfo();
         updateGradeSelects();
+        updatePrevGradeSelect();
+        // Always ensure at least one course row exists
+        if (coursesContainer.getElementsByClassName('input-row').length === 0) {
+            addRow();
+        }
         // Sync with semester tab
         semesterUniversitySelect.value = this.value;
         updateSemesterGradingInfo();
@@ -484,13 +68,20 @@ function initializeApp() {
         currentGradeOptions = universityGradingSystems[currentUniversity].grades;
         updateGradingInfo();
         updateGradeSelects();
+        updatePrevGradeSelect();
+        // Always ensure at least one course row exists
+        if (coursesContainer.getElementsByClassName('input-row').length === 0) {
+            addRow();
+        }
     });
     
     // Add event listener for PDF download
-    downloadPdfBtn.addEventListener('click', generatePDF);
+    if (downloadPdfBtn) downloadPdfBtn.addEventListener('click', generatePDF);
     
-    // Add initial rows
-    for (let i = 0; i <3; i++) addRow();
+    // Add initial rows if none exist
+    if (coursesContainer.getElementsByClassName('input-row').length === 0) {
+        for (let i = 0; i < 3; i++) addRow();
+    }
     
     // Add smooth scrolling for better UX
     addSmoothScrolling();
@@ -591,26 +182,18 @@ function updateGradeSelects() {
 
 function updateGradeSelect(selectElement) {
     const currentValue = selectElement.value;
-    
-    // Clear existing options
     selectElement.innerHTML = '';
-    
-    // Add default option
-    const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.textContent = currentGradeOptions[0].letter;
-    selectElement.appendChild(defaultOption);
-    
-    // Add grade options
-    currentGradeOptions.forEach(grade => {
-        const option = document.createElement('option');
-        option.value = grade.value;
-        option.textContent = grade.letter;
-        if (grade.value.toString() === currentValue) {
-            option.selected = true;
-        }
-        selectElement.appendChild(option);
+    const grades = universityGradingSystems[currentUniversity].grades;
+    grades.forEach(g => {
+        const opt = document.createElement('option');
+        opt.value = g.value;
+        opt.textContent = `${g.letter} (${g.value})`;
+        if (currentValue && g.value === currentValue) opt.selected = true;
+        selectElement.appendChild(opt);
     });
+    if (!selectElement.value) {
+        selectElement.value = grades[0].value;
+    }
 }
 
 function createRow(course = '', credits = 0, grade = null) {
@@ -642,30 +225,17 @@ function createRow(course = '', credits = 0, grade = null) {
     // Grade select
     const gradeSelect = document.createElement('select');
     gradeSelect.className = 'border rounded px-3 py-2 w-full text-center focus:outline-none focus:ring-2 focus:ring-blue-300 text-base md:text-lg course-grade-select';
-    // Only add unique grade options (no duplicates)
-    const uniqueGrades = [];
-    currentGradeOptions.forEach(gradeObj => {
-        if (!uniqueGrades.some(g => g.value === gradeObj.value)) {
-            uniqueGrades.push(gradeObj);
-        }
-    });
-    // Add highest grade as the first option
-    const highestGrade = uniqueGrades[0];
-    const highestGradeOption = document.createElement('option');
-    highestGradeOption.value = highestGrade.value;
-    highestGradeOption.textContent = highestGrade.letter;
-    gradeSelect.appendChild(highestGradeOption);
-    // Add the rest of the grades (excluding the highest)
-    uniqueGrades.slice(1).forEach(g => {
+    const grades = universityGradingSystems[currentUniversity].grades;
+    grades.forEach(g => {
         const opt = document.createElement('option');
         opt.value = g.value;
-        opt.textContent = g.letter;
+        opt.textContent = `${g.letter} (${g.value})`;
         if (grade !== null && g.value === grade) opt.selected = true;
         gradeSelect.appendChild(opt);
     });
     // If no grade is provided, default to highest
     if (grade === null) {
-        gradeSelect.value = highestGrade.value;
+        gradeSelect.value = grades[0].value;
     }
 
     // Delete button wrapper for centering
@@ -691,12 +261,12 @@ function createRow(course = '', credits = 0, grade = null) {
     // Auto-select highest grade if course and credits are filled but grade is not
     courseInput.addEventListener('input', () => {
         if (courseInput.value && creditsSelect.value && !gradeSelect.value) {
-            gradeSelect.value = highestGrade.value;
+            gradeSelect.value = grades[0].value;
         }
     });
     creditsSelect.addEventListener('change', () => {
         if (courseInput.value && creditsSelect.value && !gradeSelect.value) {
-            gradeSelect.value = highestGrade.value;
+            gradeSelect.value = grades[0].value;
         }
     });
 }
@@ -842,154 +412,113 @@ async function generatePDF() {
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
         const pageWidth = pdf.internal.pageSize.getWidth();
-        let y = 40;
+        let y = 56;
 
-        // Header with colored background and logo
-        pdf.setFillColor(59, 130, 246); // Tailwind blue-600
-        pdf.rect(0, 0, pageWidth, 80, 'F');
-        pdf.setTextColor(255, 255, 255);
-        pdf.setFontSize(24);
+        // 1. Headline: Grade Report
+        pdf.setFillColor(37, 99, 235); // Tailwind blue-600
+        pdf.roundedRect(0, 0, pageWidth, 70, 0, 0, 'F');
         pdf.setFont('helvetica', 'bold');
-        pdf.text('CGPA Report Card', pageWidth / 2, 50, { align: 'center' });
-        // Small logo/illustration (simple SVG-like)
-        pdf.setFillColor(251, 191, 36); // Tailwind yellow-400
-        pdf.circle(pageWidth - 50, 40, 16, 'F');
-        pdf.setFillColor(59, 130, 246);
-        pdf.circle(pageWidth - 50, 40, 10, 'F');
-        y = 100;
+        pdf.setFontSize(30);
+        pdf.setTextColor(255, 255, 255);
+        pdf.text('Grade Report', pageWidth / 2, 44, { align: 'center' });
+        y = 90;
 
-        // Student Information Section
+        // 2. University Name
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(18);
+        pdf.setTextColor(59, 130, 246); // Tailwind blue-500
+        pdf.text(calculationData.university, pageWidth / 2, y, { align: 'center' });
+        y += 30;
+
+        // 3. Student Info Row
+        pdf.setFont('helvetica', 'normal');
         pdf.setFontSize(13);
         pdf.setTextColor(55, 65, 81); // Tailwind gray-700
+        pdf.text('Name:', 60, y);
+        pdf.text('_________________________', 100, y);
+        pdf.text('ID:', 300, y);
+        pdf.text('_________________', 325, y);
+        pdf.text('Semester:', 470, y);
+        pdf.text('_____________', 530, y);
+        y += 32;
+
+        // 4. Summary Card
+        pdf.setFillColor(232, 240, 254); // Light blue
+        pdf.roundedRect(50, y, pageWidth - 100, 60, 14, 14, 'F');
         pdf.setFont('helvetica', 'bold');
-        pdf.text('Student Information', 40, y);
-        pdf.setDrawColor(59, 130, 246);
-        pdf.setLineWidth(1);
-        pdf.line(40, y + 4, pageWidth - 40, y + 4);
-        y += 18;
-        pdf.setFontSize(11);
+        pdf.setFontSize(15);
+        pdf.setTextColor(37, 99, 235); // Blue
+        pdf.text('Summary', 65, y + 28);
         pdf.setFont('helvetica', 'normal');
-        pdf.text('Name:', 50, y + 15);
-        pdf.text('_________________________', 100, y + 15);
-        pdf.text('Student ID:', 300, y + 15);
-        pdf.text('_________________', 370, y + 15);
-        pdf.text('Semester:', 500, y + 15);
-        pdf.text('_____________', 560, y + 15);
-        y += 30;
-
-        // University & Date Section
-        pdf.setFontSize(12);
+        pdf.setFontSize(13);
         pdf.setTextColor(55, 65, 81);
-        pdf.setFont('helvetica', 'normal');
-        pdf.text(`University: ${calculationData.university}`, 40, y);
-        pdf.text(`Report Date: ${calculationData.calculationDate}`, 350, y);
-        y += 30;
-
-        // Summary Card
-        pdf.setFillColor(236, 254, 255); // Tailwind cyan-50
-        pdf.roundedRect(40, y, pageWidth - 80, 60, 12, 12, 'F');
+        pdf.text('Total CGPA:', 200, y + 28);
+        pdf.setFont('helvetica', 'bold');
         pdf.setFontSize(16);
-        pdf.setTextColor(13, 148, 136); // Tailwind teal-600
-        pdf.setFont('helvetica', 'bold');
-        pdf.text('Summary', 55, y + 25);
-        pdf.setFontSize(12);
-        pdf.setTextColor(55, 65, 81);
+        pdf.setTextColor(16, 185, 129); // Green
+        pdf.text(`${calculationData.cgpa.toFixed(2)}`, 280, y + 28);
         pdf.setFont('helvetica', 'normal');
-        pdf.text(`Total CGPA:`, 200, y + 25);
-        pdf.setFont('helvetica', 'bold');
-        pdf.setTextColor(59, 130, 246);
-        pdf.text(`${calculationData.cgpa.toFixed(2)}`, 270, y + 25);
-        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(13);
         pdf.setTextColor(55, 65, 81);
-        pdf.text(`Total Credits:`, 350, y + 25);
+        pdf.text('Total Credits:', 370, y + 28);
         pdf.setFont('helvetica', 'bold');
-        pdf.setTextColor(251, 146, 60);
-        pdf.text(`${calculationData.totalCredits % 1 === 0 ? calculationData.totalCredits : calculationData.totalCredits.toFixed(1)}`, 440, y + 25);
+        pdf.setFontSize(16);
+        pdf.setTextColor(251, 146, 60); // Orange
+        pdf.text(`${calculationData.totalCredits % 1 === 0 ? calculationData.totalCredits : calculationData.totalCredits.toFixed(1)}`, 470, y + 28);
         y += 80;
 
-        // Previous Credits Table (if any)
-        if (calculationData.previousCredits.length > 0) {
-            pdf.setFontSize(14);
-            pdf.setTextColor(202, 138, 4); // Tailwind yellow-700
-            pdf.setFont('helvetica', 'bold');
-            pdf.text('Previous Credits', 40, y);
-            y += 10;
-            pdf.setDrawColor(251, 191, 36);
-            pdf.setLineWidth(1);
-            pdf.line(40, y + 4, pageWidth - 40, y + 4);
-            y += 12;
-            pdf.setFontSize(11);
-            pdf.setFont('helvetica', 'normal');
-            pdf.setTextColor(55, 65, 81);
-            // Table header
-            pdf.setFillColor(254, 243, 199); // Tailwind yellow-100
-            pdf.rect(40, y, pageWidth - 80, 22, 'F');
-            pdf.text('Type', 50, y + 15);
-            pdf.text('Credits', 180, y + 15);
-            pdf.text('Grade', 260, y + 15);
-            pdf.text('Grade Points', 340, y + 15);
-            y += 24;
-            // Table rows
-            calculationData.previousCredits.forEach((item, idx) => {
-                if (idx % 2 === 0) {
-                    pdf.setFillColor(255, 251, 235); // Tailwind yellow-50
-                    pdf.rect(40, y, pageWidth - 80, 20, 'F');
-                }
-                pdf.setTextColor(55, 65, 81);
-                pdf.text(item.type, 50, y + 14);
-                pdf.text(String(item.credits), 180, y + 14);
-                pdf.text(String(item.grade), 260, y + 14);
-                pdf.text(item.gradePoints.toFixed(2), 340, y + 14);
-                y += 20;
-            });
-            y += 10;
-        }
-
-        // Course Details Table
-        pdf.setFontSize(14);
-        pdf.setTextColor(16, 185, 129); // Tailwind green-500
+        // 5. Course Details Table
         pdf.setFont('helvetica', 'bold');
-        pdf.text('Course Details', 40, y);
-        y += 10;
+        pdf.setFontSize(15);
+        pdf.setTextColor(16, 185, 129); // Green
+        pdf.text('Course Details', 50, y);
+        y += 12;
         pdf.setDrawColor(16, 185, 129);
         pdf.setLineWidth(1);
-        pdf.line(40, y + 4, pageWidth - 40, y + 4);
-        y += 12;
-        pdf.setFontSize(11);
+        pdf.line(50, y + 4, pageWidth - 50, y + 4);
+        y += 14;
         pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(12);
         pdf.setTextColor(55, 65, 81);
         // Table header
-        pdf.setFillColor(209, 250, 229); // Tailwind green-100
-        pdf.rect(40, y, pageWidth - 80, 22, 'F');
-        pdf.text('Course', 50, y + 15);
-        pdf.text('Credits', 180, y + 15);
-        pdf.text('Grade', 260, y + 15);
-        pdf.text('Grade Points', 340, y + 15);
-        y += 24;
+        pdf.setFillColor(219, 234, 254); // Blue-100
+        pdf.roundedRect(50, y, pageWidth - 100, 26, 8, 8, 'F');
+        pdf.setFont('helvetica', 'bold');
+        pdf.setTextColor(37, 99, 235);
+        pdf.text('Course', 60, y + 18);
+        pdf.text('Credits', 220, y + 18);
+        pdf.text('Grade', 320, y + 18);
+        pdf.text('Grade Points', 410, y + 18);
+        y += 28;
         // Table rows
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(12);
         calculationData.courseDetails.forEach((item, idx) => {
             if (idx % 2 === 0) {
-                pdf.setFillColor(236, 254, 255); // Tailwind cyan-50
-                pdf.rect(40, y, pageWidth - 80, 20, 'F');
+                pdf.setFillColor(239, 246, 255); // Blue-50
+                pdf.roundedRect(50, y, pageWidth - 100, 22, 8, 8, 'F');
             }
             pdf.setTextColor(55, 65, 81);
-            pdf.text(item.course, 50, y + 14);
-            pdf.text(String(item.credits), 180, y + 14);
-            pdf.text(String(item.grade), 260, y + 14);
-            pdf.text(item.gradePoints.toFixed(2), 340, y + 14);
-            y += 20;
+            pdf.text(item.course, 60, y + 15);
+            pdf.text(String(item.credits), 220, y + 15);
+            pdf.text(String(item.grade), 320, y + 15);
+            pdf.text(item.gradePoints.toFixed(2), 410, y + 15);
+            y += 22;
         });
-        y += 10;
+        y += 20;
 
-        // Footer
-        pdf.setFontSize(10);
-        pdf.setTextColor(156, 163, 175); // Tailwind gray-400
+        // 6. Footer
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(11);
+        pdf.setTextColor(37, 99, 235); // Blue
+        pdf.text('Generated by ALL University CGPA Calculator', pageWidth / 2, 800, { align: 'center' });
         pdf.setFont('helvetica', 'normal');
-        pdf.text('Generated by Bangladesh University CGPA Calculator', pageWidth / 2, 820, { align: 'center' });
-        pdf.text(`Report generated on ${calculationData.calculationDate}`, pageWidth / 2, 835, { align: 'center' });
+        pdf.setFontSize(11);
+        pdf.setTextColor(16, 185, 129); // Green
+        pdf.text('Developed by Neptune Software Solutions', pageWidth / 2, 820, { align: 'center' });
 
         // Save PDF
-        const fileName = `CGPA_ReportCard_${calculationData.university.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
+        const fileName = `Grade_Report_${calculationData.university.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
         pdf.save(fileName);
         showNotification('PDF downloaded successfully!', 'success');
     } catch (error) {
@@ -1053,16 +582,6 @@ function addSemesterRow(semester = '', cgpa = '', credits = '') {
     creditsInput.min = '0';
     creditsInput.value = credits;
     
-    // Calculate button
-    const calcBtnTd = document.createElement('td');
-    calcBtnTd.className = 'flex items-center justify-center h-full';
-    const calcBtn = document.createElement('button');
-    calcBtn.type = 'button';
-    calcBtn.className = 'bg-gradient-to-br from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-white font-bold py-2 px-3 rounded-lg transition flex items-center gap-1 shadow-md text-xs';
-    calcBtn.innerHTML = '<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>Calc';
-    calcBtn.onclick = () => showSemesterCourseModal(row);
-    calcBtnTd.appendChild(calcBtn);
-    
     // Delete button
     const delBtnTd = document.createElement('td');
     delBtnTd.className = 'flex items-center justify-center h-full';
@@ -1080,167 +599,8 @@ function addSemesterRow(semester = '', cgpa = '', credits = '') {
     row.appendChild(createTd(semesterInput));
     row.appendChild(createTd(cgpaInput));
     row.appendChild(createTd(creditsInput));
-    row.appendChild(calcBtnTd);
     row.appendChild(delBtnTd);
     semesterRows.appendChild(row);
-}
-
-function showSemesterCourseModal(semesterRow) {
-    const semesterInput = semesterRow.querySelector('input[type="text"]');
-    const cgpaInput = semesterRow.querySelector('input[placeholder="CGPA"]');
-    const creditsInput = semesterRow.querySelector('input[placeholder="Credits"]');
-    const semesterName = semesterInput.value || 'Semester';
-    
-    // Create modal
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-    modal.innerHTML = `
-        <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-bold text-purple-800">Calculate ${semesterName} CGPA</h3>
-                <button class="text-gray-500 hover:text-gray-700 text-2xl" onclick="this.closest('.fixed').remove()">&times;</button>
-            </div>
-            <div class="mb-4">
-                <div class="flex justify-between items-center mb-2">
-                    <h4 class="text-lg font-semibold text-gray-800">Add Courses</h4>
-                    <button type="button" class="add-semester-course-btn bg-gradient-to-br from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-bold py-2 px-4 rounded-lg transition flex items-center gap-2 shadow-md text-sm" onclick="addSemesterCourseRow(this)">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                        Add Course
-                    </button>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm mb-4">
-                        <thead>
-                            <tr class="bg-purple-100">
-                                <th class="px-4 py-2 text-left">Course</th>
-                                <th class="px-4 py-2 text-center">Credits</th>
-                                <th class="px-4 py-2 text-center">Grade</th>
-                                <th class="px-4 py-2 text-center">#</th>
-                            </tr>
-                        </thead>
-                        <tbody class="semester-course-rows"></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="flex justify-between items-center">
-                <button type="button" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition" onclick="this.closest('.fixed').remove()">
-                    Cancel
-                </button>
-                <button type="button" class="bg-gradient-to-br from-teal-500 to-blue-600 hover:from-teal-600 hover:to-blue-700 text-white font-bold py-2 px-6 rounded-lg transition" onclick="calculateSemesterFromCourses(this, '${cgpaInput.id}', '${creditsInput.id}')">
-                    Calculate & Apply
-                </button>
-            </div>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    
-    // Add initial course row
-    const courseRowsContainer = modal.querySelector('.semester-course-rows');
-    addSemesterCourseRow(modal.querySelector('.add-semester-course-btn'));
-}
-
-function addSemesterCourseRow(button) {
-    const courseRowsContainer = button.closest('.bg-white').querySelector('.semester-course-rows');
-    const row = document.createElement('tr');
-    row.className = 'bg-purple-50 hover:bg-purple-100 transition';
-    
-    // Course input
-    const courseInput = document.createElement('input');
-    courseInput.type = 'text';
-    courseInput.placeholder = 'Course';
-    courseInput.className = 'border rounded px-3 py-2 w-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-300 text-base';
-    
-    // Credits select
-    const creditsSelect = document.createElement('select');
-    creditsSelect.className = 'border rounded px-3 py-2 w-full text-center focus:outline-none focus:ring-2 focus:ring-purple-300 text-base';
-    const defaultCreditsOption = document.createElement('option');
-    defaultCreditsOption.value = '';
-    defaultCreditsOption.textContent = '0';
-    creditsSelect.appendChild(defaultCreditsOption);
-    creditsOptions.forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c;
-        opt.textContent = c;
-        creditsSelect.appendChild(opt);
-    });
-    
-    // Grade select
-    const gradeSelect = document.createElement('select');
-    gradeSelect.className = 'border rounded px-3 py-2 w-full text-center focus:outline-none focus:ring-2 focus:ring-purple-300 text-base';
-    const uniqueGrades = [];
-    currentGradeOptions.forEach(gradeObj => {
-        if (!uniqueGrades.some(g => g.value === gradeObj.value)) {
-            uniqueGrades.push(gradeObj);
-        }
-    });
-    const highestGrade = uniqueGrades[0];
-    const highestGradeOption = document.createElement('option');
-    highestGradeOption.value = highestGrade.value;
-    highestGradeOption.textContent = highestGrade.letter;
-    gradeSelect.appendChild(highestGradeOption);
-    uniqueGrades.slice(1).forEach(g => {
-        const opt = document.createElement('option');
-        opt.value = g.value;
-        opt.textContent = g.letter;
-        gradeSelect.appendChild(opt);
-    });
-    gradeSelect.value = highestGrade.value;
-    
-    // Delete button
-    const delBtnTd = document.createElement('td');
-    delBtnTd.className = 'flex items-center justify-center h-full';
-    const delBtn = document.createElement('button');
-    delBtn.type = 'button';
-    delBtn.className = 'text-white bg-red-500 hover:bg-red-600 rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold transition shadow';
-    delBtn.innerHTML = '&times;';
-    delBtn.onclick = () => row.remove();
-    delBtnTd.appendChild(delBtn);
-    
-    // Build row
-    row.appendChild(createTd(courseInput));
-    row.appendChild(createTd(creditsSelect));
-    row.appendChild(createTd(gradeSelect));
-    row.appendChild(delBtnTd);
-    courseRowsContainer.appendChild(row);
-}
-
-function calculateSemesterFromCourses(button, cgpaInputId, creditsInputId) {
-    const modal = button.closest('.fixed');
-    const courseRows = modal.querySelectorAll('.semester-course-rows tr');
-    let totalCredits = 0;
-    let totalGradePoints = 0;
-    
-    courseRows.forEach(row => {
-        const [courseInput, creditsSelect, gradeSelect] = row.querySelectorAll('input, select');
-        const course = courseInput.value.trim();
-        const credits = parseFloat(creditsSelect.value);
-        const grade = parseFloat(gradeSelect.value);
-        
-        if (course && !isNaN(credits) && credits > 0 && !isNaN(grade)) {
-            totalCredits += credits;
-            totalGradePoints += credits * grade;
-        }
-    });
-    
-    const semesterCgpa = totalCredits ? (totalGradePoints / totalCredits) : 0;
-    
-    // Update the semester row inputs
-    const semesterRow = document.querySelector(`#${cgpaInputId}`) || 
-                       document.querySelector('input[placeholder="CGPA"]');
-    const creditsRow = document.querySelector(`#${creditsInputId}`) || 
-                      document.querySelector('input[placeholder="Credits"]');
-    
-    if (semesterRow && creditsRow) {
-        semesterRow.value = semesterCgpa.toFixed(2);
-        creditsRow.value = totalCredits % 1 === 0 ? totalCredits : totalCredits.toFixed(2);
-    }
-    
-    // Close modal
-    modal.remove();
-    
-    // Show notification
-    showNotification(`Semester CGPA calculated: ${semesterCgpa.toFixed(2)}`, 'success');
 }
 
 function createTd(child) {
@@ -1294,16 +654,27 @@ function updateSemesterGradingInfo() {
     semesterGradingInfo.innerHTML = `<strong>Grading System:</strong> ${gradeText}`;
 }
 
+function updatePrevGradeSelect() {
+    prevGradeSelect.innerHTML = '';
+    const grades = universityGradingSystems[currentUniversity].grades;
+    grades.forEach(g => {
+        const opt = document.createElement('option');
+        opt.value = g.value;
+        opt.textContent = `${g.letter} (${g.value})`;
+        prevGradeSelect.appendChild(opt);
+    });
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
     
     // Form submit event
-    const cgpaForm = document.getElementById('cgpaForm');
-    cgpaForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        calculateCGPA();
-    });
+const cgpaForm = document.getElementById('cgpaForm');
+cgpaForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    calculateCGPA();
+}); 
     
     // Tab logic: default to General, add initial semester row
     showTab('general');
@@ -1319,3 +690,157 @@ document.addEventListener('DOMContentLoaded', function() {
         calculateSemesterCGPA();
     });
 });
+
+window.addRow = addRow;
+window.showTab = showTab;
+window.addSemesterRow = addSemesterRow;
+window.calculateSemesterCGPA = calculateSemesterCGPA;
+
+// --- Semester-wise PDF Generation ---
+const downloadSemesterPdfBtn = document.getElementById('downloadSemesterPdfBtn');
+if (downloadSemesterPdfBtn) {
+    downloadSemesterPdfBtn.addEventListener('click', generateSemesterPDF);
+}
+
+async function generateSemesterPDF() {
+    const semesterRows = document.querySelectorAll('#semesterRows tr');
+    if (!semesterRows.length) {
+        showNotification('No semester data available', 'error');
+        return;
+    }
+    let semesters = [];
+    let totalCredits = 0;
+    let totalGradePoints = 0;
+    semesterRows.forEach(row => {
+        const [semesterInput, cgpaInput, creditsInput] = row.querySelectorAll('input');
+        const semester = semesterInput.value || '';
+        const cgpa = parseFloat(cgpaInput.value);
+        const credits = parseFloat(creditsInput.value);
+        if (!isNaN(cgpa) && !isNaN(credits) && credits > 0) {
+            semesters.push({ semester, cgpa, credits });
+            totalCredits += credits;
+            totalGradePoints += cgpa * credits;
+        }
+    });
+    if (!semesters.length) {
+        showNotification('No valid semester data', 'error');
+        return;
+    }
+    const overallCgpa = totalCredits ? (totalGradePoints / totalCredits) : 0;
+    try {
+        showNotification('Generating PDF...', 'info');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        let y = 56;
+        // Header
+        pdf.setFillColor(139, 92, 246); // Tailwind purple-500
+        pdf.roundedRect(0, 0, pageWidth, 70, 0, 0, 'F');
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(30);
+        pdf.setTextColor(255, 255, 255);
+        pdf.text('Semester-wise CGPA Report', pageWidth / 2, 44, { align: 'center' });
+        y = 90;
+        // University Name
+        const uni = semesterUniversitySelect.options[semesterUniversitySelect.selectedIndex].text;
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(18);
+        pdf.setTextColor(139, 92, 246); // Purple
+        pdf.text(uni, pageWidth / 2, y, { align: 'center' });
+        y += 30;
+        // Student Info Row
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(13);
+        pdf.setTextColor(55, 65, 81);
+        pdf.text('Name:', 60, y);
+        pdf.text('_________________________', 100, y);
+        pdf.text('ID:', 300, y);
+        pdf.text('_________________', 325, y);
+        y += 32;
+        // Summary
+        pdf.setFillColor(232, 240, 254);
+        pdf.roundedRect(50, y, pageWidth - 100, 60, 14, 14, 'F');
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(15);
+        pdf.setTextColor(139, 92, 246);
+        pdf.text('Summary', 65, y + 28);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(13);
+        pdf.setTextColor(55, 65, 81);
+        pdf.text('Overall CGPA:', 200, y + 28);
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(16);
+        pdf.setTextColor(16, 185, 129);
+        pdf.text(`${overallCgpa.toFixed(2)}`, 300, y + 28);
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(13);
+        pdf.setTextColor(55, 65, 81);
+        pdf.text('Total Credits:', 400, y + 28);
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(16);
+        pdf.setTextColor(251, 146, 60);
+        pdf.text(`${totalCredits % 1 === 0 ? totalCredits : totalCredits.toFixed(1)}`, 500, y + 28);
+        y += 80;
+        // Semester Table
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(15);
+        pdf.setTextColor(139, 92, 246);
+        pdf.text('Semester Details', 50, y);
+        y += 12;
+        pdf.setDrawColor(139, 92, 246);
+        pdf.setLineWidth(1);
+        pdf.line(50, y + 4, pageWidth - 50, y + 4);
+        y += 14;
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(12);
+        pdf.setTextColor(55, 65, 81);
+        // Table header
+        pdf.setFillColor(233, 213, 255); // Purple-100
+        pdf.roundedRect(50, y, pageWidth - 100, 26, 8, 8, 'F');
+        pdf.setFont('helvetica', 'bold');
+        pdf.setTextColor(139, 92, 246);
+        pdf.text('Semester', 60, y + 18);
+        pdf.text('CGPA', 220, y + 18);
+        pdf.text('Credits', 320, y + 18);
+        y += 28;
+        // Table rows
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(12);
+        semesters.forEach((item, idx) => {
+            if (idx % 2 === 0) {
+                pdf.setFillColor(243, 232, 255); // Purple-50
+                pdf.roundedRect(50, y, pageWidth - 100, 22, 8, 8, 'F');
+            }
+            pdf.setTextColor(55, 65, 81);
+            pdf.text(item.semester || `Semester ${idx + 1}`, 60, y + 15);
+            pdf.text(String(item.cgpa), 220, y + 15);
+            pdf.text(String(item.credits), 320, y + 15);
+            y += 22;
+        });
+        y += 20;
+        // Footer
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(11);
+        pdf.setTextColor(139, 92, 246);
+        pdf.text('Generated by ALL University CGPA Calculator', pageWidth / 2, 800, { align: 'center' });
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(11);
+        pdf.setTextColor(16, 185, 129);
+        pdf.text('Developed by Neptune Software Solutions', pageWidth / 2, 820, { align: 'center' });
+        // Save PDF
+        const fileName = `Semester_Report_${uni.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
+        pdf.save(fileName);
+        showNotification('PDF downloaded successfully!', 'success');
+    } catch (error) {
+        console.error('PDF generation error:', error);
+        showNotification('Error generating PDF. Please try again.', 'error');
+    }
+}
+
+// Fix mobile navbar toggle for mobile
+window.toggleMobileMenu = function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+    }
+};
